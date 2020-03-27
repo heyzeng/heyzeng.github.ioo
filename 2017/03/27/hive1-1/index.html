@@ -176,7 +176,7 @@
 row format delimited fields terminated by &#39;\u0001&#39;
 lines terminated by &#39;\n&#39;
 stored as textfile;</code></pre>
-<h5 id="1-2-Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码"><a href="#1-2-Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码" class="headerlink" title="1.2 Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码"></a>1.2 Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码</h5><p><img src="https://upload-images.jianshu.io/upload_images/11713721-4e98a1f9634f2a11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt=""></p>
+<h5 id="1-2-Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码"><a href="#1-2-Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码" class="headerlink" title="1.2 Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码"></a>1.2 Hive的元数据存在Mysql中，而Mysql字符集的默认Latin1，则会出现乱码</h5><p><img src="http://q7jwslv80.bkt.clouddn.com/ambari_1.png" srcset="/img/loading.gif" alt=""></p>
 <h1 id="2-修改Mysql字符集-latin1-改成-utf-8"><a href="#2-修改Mysql字符集-latin1-改成-utf-8" class="headerlink" title="2 修改Mysql字符集 latin1 改成 utf-8"></a>2 修改Mysql字符集 latin1 改成 utf-8</h1><p>在hive库里面修改表、分区、视图</p>
 <h5 id="2-1-修改表字段注解和表注解"><a href="#2-1-修改表字段注解和表注解" class="headerlink" title="2.1 修改表字段注解和表注解"></a>2.1 修改表字段注解和表注解</h5><pre><code class="sql">use hive；# mysql元数据库
 alter table COLUMNS_V2 modify column COMMENT varchar(256) character set utf8；
@@ -185,8 +185,8 @@ alter table TABLE_PARAMS modify column PARAM_VALUE varchar(4000) character set u
 alter table PARTITION_KEYS modify column PKEY_COMMENT varchar(4000) character set utf8;</code></pre>
 <h5 id="2-3-修改索引注解"><a href="#2-3-修改索引注解" class="headerlink" title="2.3 修改索引注解"></a>2.3 修改索引注解</h5><pre><code class="sql">alter table INDEX_PARAMS modify column PARAM_VALUE varchar(4000) character set utf8;</code></pre>
 <h1 id="3-在ambari的UI页面修改-metastore-的连接-URL"><a href="#3-在ambari的UI页面修改-metastore-的连接-URL" class="headerlink" title="3 在ambari的UI页面修改 metastore 的连接 URL"></a>3 在ambari的UI页面修改 metastore 的连接 URL</h1><p>  注意修改完成后要重启Hive</p>
-<pre><code>jdbc:mysql://ip:3306/database?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;characterEncoding=UTF-8</code></pre><p><img src="https://upload-images.jianshu.io/upload_images/11713721-c844759f82880d6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt=""></p>
-<h1 id="4-验证结果"><a href="#4-验证结果" class="headerlink" title="4 验证结果"></a>4 验证结果</h1><p>  注意：必须是新建hive表，就得表字符集已经不可改变。<br><img src="https://upload-images.jianshu.io/upload_images/11713721-be4d00b11ab6cabc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt=""></p>
+<pre><code>jdbc:mysql://ip:3306/database?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;characterEncoding=UTF-8</code></pre><p><img src="http://q7jwslv80.bkt.clouddn.com/ambari_2.png" srcset="/img/loading.gif" alt=""></p>
+<h1 id="4-验证结果"><a href="#4-验证结果" class="headerlink" title="4 验证结果"></a>4 验证结果</h1><p>  注意：必须是新建hive表，就得表字符集已经不可改变。<br><img src="http://q7jwslv80.bkt.clouddn.com/ambari_3.png" srcset="/img/loading.gif" alt=""></p>
 
             </div>
             <hr>
