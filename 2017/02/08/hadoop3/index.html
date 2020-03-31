@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Jude">
   <meta name="keywords" content="">
-  <title>曾俊峰的技术博客</title>
+  <title>hadoop3 - 曾俊峰的技术博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -111,7 +111,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('http://q7jwslv80.bkt.clouddn.com/wallhaven-1.png') no-repeat center center;
+         style="background: url('http://q7jwslv80.bkt.clouddn.com/wallhaven-5.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -121,12 +121,35 @@
             </span>
 
             
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期三, 二月 8日 2017, 9:44 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    188 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      1 分钟
+                  </span>
+                
+
+                
+              </p>
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
-            </div>
           
         </div>
       </div>
@@ -135,249 +158,93 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="hadoop官方wordcount示例"><a href="#hadoop官方wordcount示例" class="headerlink" title="hadoop官方wordcount示例"></a>hadoop官方wordcount示例</h1><p>前面的安装准备工作准备好之后，当然要运行下大数据的入门wordcount<br>提供版本JDK1.8+Hadoop2.7.2</p>
+<h4 id="在hadoop-2-7-2文件下面创建一个input文件夹"><a href="#在hadoop-2-7-2文件下面创建一个input文件夹" class="headerlink" title="在hadoop-2.7.2文件下面创建一个input文件夹"></a>在hadoop-2.7.2文件下面创建一个input文件夹</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]$mkdir input</code></pre>
+<h4 id="在wcinput文件下创建一个wc-input文件"><a href="#在wcinput文件下创建一个wc-input文件" class="headerlink" title="在wcinput文件下创建一个wc.input文件"></a>在wcinput文件下创建一个wc.input文件</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]cd input
+[root@hadoop101 input]touch wc.input</code></pre>
+<h4 id="编辑wc-input文件"><a href="#编辑wc-input文件" class="headerlink" title="编辑wc.input文件"></a>编辑wc.input文件</h4><pre><code class="bash">[root@hadoop01 input]vim wc.input
+# 文件内容
+hadoop    
+mapreduce    
+yarn
+yarn    </code></pre>
+<h4 id="wc-input文件加载到hdfs"><a href="#wc-input文件加载到hdfs" class="headerlink" title="wc.input文件加载到hdfs"></a>wc.input文件加载到hdfs</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop fs -put input/ /tmp/</code></pre>
+<h4 id="运行官方jar包"><a href="#运行官方jar包" class="headerlink" title="运行官方jar包"></a>运行官方jar包</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount /tmp/input/  /tmp/output/</code></pre>
+<h4 id="查看wordcount统计词频"><a href="#查看wordcount统计词频" class="headerlink" title="查看wordcount统计词频"></a>查看wordcount统计词频</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop fs -cat /tmp/output//part-r-00000
+# 统计内容
+hadoop    1
+mapreduce    1
+yarn    2</code></pre>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/">
-        <p class="h4 index-header">博客导航</p>
-      </a>
-
-      <a href="/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"></div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-28&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/10/25/clickhouse1-1/">
-        <p class="h4 index-header">ClickHouse之深圳MeetUp</p>
-      </a>
-
-      <a href="/2019/10/25/clickhouse1-1/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">前言俄罗斯小哥很帅
-纪要感想
-Yandex团队clickhouse的新特性以及在机器学习方面的研究
-腾讯
-朱凯老师MergerTree
-
-原理</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-25&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2017/05/28/hive1/">
-        <p class="h4 index-header">数仓工具Hive(一)：起源</p>
-      </a>
-
-      <a href="/2017/05/28/hive1/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">what is hive
-官方文档
-The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive
-
-释义
-Apac</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2017-05-28&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Hive/">Hive</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2017/03/27/hive1-1/">
-        <p class="h4 index-header">Ambari+HDP安装的Hive出现中文乱码解决</p>
-      </a>
-
-      <a href="/2017/03/27/hive1-1/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1 Hive注释comment出现乱码1.1 Hive建表语句create table  test.mytest_tm1(
-              id int comment&#39;编号&#39;,
-              name string comment &#39;名字&#39;
-              )
-row format delimited fields terminated by &#39;\u0001&#39;
-lines terminated by &#39;\n&#39;
-stored as textfile;
-1.2 Hive的元数据存在Mysql中，</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2017-03-27&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/ambari/">ambari</a>&nbsp;
-          
-            <a href="/tags/hdp/">hdp</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2017/03/27/hahoop1/">
-        <p class="h4 index-header">大数据生态Hadoop(一):起源</p>
-      </a>
-
-      <a href="/2017/03/27/hahoop1/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">What is Hadoop
-官方文档The Apache™ Hadoop® project develops open-source software for reliable, scalable, distributed computing.
-释义Apache™Hadoop®项目开发用于可靠、可伸缩的分布式计算的开源软件。
-广义广义上来说，Hadoop通常是指一个更广泛的概念——Hadoop生态圈。
-
-Hadoop起源
-Lucene框架是Doug Cutting开创的开源软件，用Java书写代码，实现与Google类似的全文搜索功能，它提供了全文检索引擎的架构，包括完整的查询引擎和索引引擎</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2017-03-27&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/hadoop/">hadoop</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2017/02/08/hadoop3/">
-        <p class="h4 index-header">hadoop3</p>
-      </a>
-
-      <a href="/2017/02/08/hadoop3/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">hadoop官方wordcount示例前面的安装准备工作准备好之后，当然要运行下大数据的入门wordcount提供版本JDK1.8+Hadoop2.7.2
-在hadoop-2.7.2文件下面创建一个input文件夹[root@hadoop101 hadoop-2.7.2]$mkdir input
-在wcinput文件下创建一个wc.input文件[root@hadoop101 hadoop-2.7.2]cd input
-[root@hadoop101 input]touch wc.input
-编辑wc.input文件[root@hadoop01 input]vim wc.input
-# 文件内</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2017-02-08&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/hadoop/">hadoop</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-              </div>
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/hadoop/">hadoop</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/03/27/hahoop1/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">大数据生态Hadoop(一):起源</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -442,6 +309,59 @@ Lucene框架是Doug Cutting开创的开源软件，用Java书写代码，实现�
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
@@ -473,7 +393,7 @@ Lucene框架是Doug Cutting开创的开源软件，用Java书写代码，实现�
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "活在当下 不记得失&nbsp;",
+        "hadoop3&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
