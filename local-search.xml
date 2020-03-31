@@ -55,17 +55,48 @@
   
   
   <entry>
-    <title>hadoop3</title>
+    <title>大数据生态hadoop(3):实现官方自带wordcount案例</title>
     <link href="/2017/05/08/hadoop3/"/>
     <url>/2017/05/08/hadoop3/</url>
     
     <content type="html"><![CDATA[<h1 id="hadoop官方wordcount示例"><a href="#hadoop官方wordcount示例" class="headerlink" title="hadoop官方wordcount示例"></a>hadoop官方wordcount示例</h1><p>前面的安装准备工作准备好之后，当然要运行下大数据的入门wordcount<br>提供版本JDK1.8+Hadoop2.7.2</p><h4 id="在hadoop-2-7-2文件下面创建一个input文件夹"><a href="#在hadoop-2-7-2文件下面创建一个input文件夹" class="headerlink" title="在hadoop-2.7.2文件下面创建一个input文件夹"></a>在hadoop-2.7.2文件下面创建一个input文件夹</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]$mkdir input</code></pre><h4 id="在wcinput文件下创建一个wc-input文件"><a href="#在wcinput文件下创建一个wc-input文件" class="headerlink" title="在wcinput文件下创建一个wc.input文件"></a>在wcinput文件下创建一个wc.input文件</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]cd input[root@hadoop101 input]touch wc.input</code></pre><h4 id="编辑wc-input文件"><a href="#编辑wc-input文件" class="headerlink" title="编辑wc.input文件"></a>编辑wc.input文件</h4><pre><code class="bash">[root@hadoop01 input]vim wc.input# 文件内容hadoop    mapreduce    yarnyarn    </code></pre><h4 id="wc-input文件加载到hdfs"><a href="#wc-input文件加载到hdfs" class="headerlink" title="wc.input文件加载到hdfs"></a>wc.input文件加载到hdfs</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop fs -put input/ /tmp/</code></pre><h4 id="运行官方jar包"><a href="#运行官方jar包" class="headerlink" title="运行官方jar包"></a>运行官方jar包</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount /tmp/input/  /tmp/output/</code></pre><h4 id="查看wordcount统计词频"><a href="#查看wordcount统计词频" class="headerlink" title="查看wordcount统计词频"></a>查看wordcount统计词频</h4><pre><code class="bash">[root@hadoop101 hadoop-2.7.2]hadoop fs -cat /tmp/output//part-r-00000# 统计内容hadoop    1mapreduce    1yarn    2</code></pre>]]></content>
     
     
+    <categories>
+      
+      <category>Hadoop</category>
+      
+    </categories>
+    
     
     <tags>
       
       <tag>hadoop</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>大数据生态Hadoop(一):起源</title>
+    <link href="/2017/05/05/hadoop1/"/>
+    <url>/2017/05/05/hadoop1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="What-is-Hadoop"><a href="#What-is-Hadoop" class="headerlink" title="What is Hadoop"></a>What is Hadoop</h1><ul><li>官方文档<br>The Apache™ Hadoop® project develops open-source software for reliable, scalable, distributed computing.</li><li>释义<br>Apache™Hadoop®项目开发用于可靠、可伸缩的分布式计算的开源软件。</li><li>广义<br>广义上来说，Hadoop通常是指一个更广泛的概念——Hadoop生态圈。</li></ul><h1 id="Hadoop起源"><a href="#Hadoop起源" class="headerlink" title="Hadoop起源"></a>Hadoop起源</h1><ul><li>Lucene框架是Doug Cutting开创的开源软件，用Java书写代码，实现与Google类似的全文搜索功能，它提供了全文检索引擎的架构，包括完整的查询引擎和索引引擎。</li><li>2001年年底Lucene成为Apache基金会的一个子项目。</li><li>对于海量数据的场景，Lucene面对与Google同样的困难，存储数据困难，检索速度慢。</li><li>可以说Google是Hadoop的思想之源(Google在大数据方面的三篇论文)<pre><code># Google三篇论文GFS ---&gt;HDFSMap-Reduce ---&gt;MRBigTable ---&gt;HBase</code></pre></li><li>2003-2004年，Google公开了部分GFS和MapReduce思想的细节，以此为基础Doug Cutting等人用了2年业余时间实现了DFS和MapReduce机制，使Nutch性能飙升。</li><li>2005 年Hadoop 作为 Lucene的子项目 Nutch的一部分正式引入Apache基金会。</li><li>2006 年 3 月份，Map-Reduce和Nutch Distributed File System (NDFS) 分别被纳入到 Hadoop 项目中，Hadoop就此正式诞生，标志着大数据时代来临，而名字来源于Doug Cutting儿子的玩具大象。</li></ul><h1 id="Hadoop三大发行版本"><a href="#Hadoop三大发行版本" class="headerlink" title="Hadoop三大发行版本"></a>Hadoop三大发行版本</h1><ul><li><a href="http://hadoop.apache.org/releases.html" target="_blank" rel="noopener">Apache Hadoop</a><br>版本最原始（最基础）的版本，对于入门学习最好。</li><li><a href="https://www.cloudera.com/downloads/cdh/5-10-0.html" target="_blank" rel="noopener">Cloudera Hadoop</a><br>在大型互联网企业中用的较多。</li><li><a href="https://hortonworks.com/products/data-center/hdp/" target="_blank" rel="noopener">Hortonworks Hadoop</a><br>文档完善、已经被CDH收购</li></ul><h1 id="Hadoop优势"><a href="#Hadoop优势" class="headerlink" title="Hadoop优势"></a>Hadoop优势</h1><ul><li>高可靠性<br>Hadoop底层维护多个数据副本，所以即使Hadoop某个计算元素或存储出现故障，也不会导致数据的丢失。</li><li>高扩展性<br>在集群间分配任务数据，可方便的扩展数以千计的节点。</li><li>高效性<br>在MapReduce的思想下，Hadoop是并行工作的，以加快任务处理速度。</li><li>高容错性<br>能够自动将失败的任务重新分配。</li></ul><h1 id="Hadoop组成"><a href="#Hadoop组成" class="headerlink" title="Hadoop组成"></a>Hadoop组成</h1><ul><li>HDFS<br>Hadoop分布式文件系统(HDFS)是指被设计成适合运行在通用硬件(commodity hardware)上的分布式文件系统（Distributed File System）</li><li>MapRedurce<br>MapReduce是一种编程模型，用于大规模数据集（大于1TB）的并行运算。概念”Map（映射）”和”Reduce（归约）”，是它们的主要思想，都是从函数式编程语言里借来的，还有从矢量编程语言里借来的特性。</li><li>Yarn<br>Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者）是一种新的 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。</li></ul><h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ul><li>商品广告推荐</li><li>保险</li><li>物流</li><li>旅游</li><li>…</li></ul><h1 id="Hadoop生态架构图"><a href="#Hadoop生态架构图" class="headerlink" title="Hadoop生态架构图"></a>Hadoop生态架构图</h1><p><img src="http://q7jwslv80.bkt.clouddn.com/hadoop_1_1.png" srcset="/img/loading.gif" alt="hadoop生态架构图"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hadoop</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hadoop</tag>
       
     </tags>
     
@@ -87,25 +118,6 @@
       <tag>ambari</tag>
       
       <tag>hdp</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>大数据生态Hadoop(一):起源</title>
-    <link href="/2017/03/27/hahoop1/"/>
-    <url>/2017/03/27/hahoop1/</url>
-    
-    <content type="html"><![CDATA[<h1 id="What-is-Hadoop"><a href="#What-is-Hadoop" class="headerlink" title="What is Hadoop"></a>What is Hadoop</h1><ul><li>官方文档<br>The Apache™ Hadoop® project develops open-source software for reliable, scalable, distributed computing.</li><li>释义<br>Apache™Hadoop®项目开发用于可靠、可伸缩的分布式计算的开源软件。</li><li>广义<br>广义上来说，Hadoop通常是指一个更广泛的概念——Hadoop生态圈。</li></ul><h1 id="Hadoop起源"><a href="#Hadoop起源" class="headerlink" title="Hadoop起源"></a>Hadoop起源</h1><ul><li>Lucene框架是Doug Cutting开创的开源软件，用Java书写代码，实现与Google类似的全文搜索功能，它提供了全文检索引擎的架构，包括完整的查询引擎和索引引擎。</li><li>2001年年底Lucene成为Apache基金会的一个子项目。</li><li>对于海量数据的场景，Lucene面对与Google同样的困难，存储数据困难，检索速度慢。</li><li>可以说Google是Hadoop的思想之源(Google在大数据方面的三篇论文)<pre><code># Google三篇论文GFS ---&gt;HDFSMap-Reduce ---&gt;MRBigTable ---&gt;HBase</code></pre></li><li>2003-2004年，Google公开了部分GFS和MapReduce思想的细节，以此为基础Doug Cutting等人用了2年业余时间实现了DFS和MapReduce机制，使Nutch性能飙升。</li><li>2005 年Hadoop 作为 Lucene的子项目 Nutch的一部分正式引入Apache基金会。</li><li>2006 年 3 月份，Map-Reduce和Nutch Distributed File System (NDFS) 分别被纳入到 Hadoop 项目中，Hadoop就此正式诞生，标志着大数据时代来临，而名字来源于Doug Cutting儿子的玩具大象。</li></ul><h1 id="Hadoop三大发行版本"><a href="#Hadoop三大发行版本" class="headerlink" title="Hadoop三大发行版本"></a>Hadoop三大发行版本</h1><ul><li><a href="http://hadoop.apache.org/releases.html" target="_blank" rel="noopener">Apache Hadoop</a><br>版本最原始（最基础）的版本，对于入门学习最好。</li><li><a href="https://www.cloudera.com/downloads/cdh/5-10-0.html" target="_blank" rel="noopener">Cloudera Hadoop</a><br>在大型互联网企业中用的较多。</li><li><a href="https://hortonworks.com/products/data-center/hdp/" target="_blank" rel="noopener">Hortonworks Hadoop</a><br>文档完善、已经被CDH收购</li></ul><h1 id="Hadoop优势"><a href="#Hadoop优势" class="headerlink" title="Hadoop优势"></a>Hadoop优势</h1><ul><li>高可靠性<br>Hadoop底层维护多个数据副本，所以即使Hadoop某个计算元素或存储出现故障，也不会导致数据的丢失。</li><li>高扩展性<br>在集群间分配任务数据，可方便的扩展数以千计的节点。</li><li>高效性<br>在MapReduce的思想下，Hadoop是并行工作的，以加快任务处理速度。</li><li>高容错性<br>能够自动将失败的任务重新分配。</li></ul><h1 id="Hadoop组成"><a href="#Hadoop组成" class="headerlink" title="Hadoop组成"></a>Hadoop组成</h1><ul><li>HDFS<br>Hadoop分布式文件系统(HDFS)是指被设计成适合运行在通用硬件(commodity hardware)上的分布式文件系统（Distributed File System）</li><li>MapRedurce<br>MapReduce是一种编程模型，用于大规模数据集（大于1TB）的并行运算。概念”Map（映射）”和”Reduce（归约）”，是它们的主要思想，都是从函数式编程语言里借来的，还有从矢量编程语言里借来的特性。</li><li>Yarn<br>Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者）是一种新的 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。</li></ul><h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ul><li>商品广告推荐</li><li>保险</li><li>物流</li><li>旅游</li><li>…</li></ul><h1 id="Hadoop生态架构图"><a href="#Hadoop生态架构图" class="headerlink" title="Hadoop生态架构图"></a>Hadoop生态架构图</h1><p><img src="http://q7jwslv80.bkt.clouddn.com/hadoop_1_1.png" srcset="/img/loading.gif" alt="hadoop生态架构图"></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>hadoop</tag>
       
     </tags>
     
