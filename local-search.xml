@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>大数据生态hadoop(2)：hadoop安装部署</title>
-    <link href="/2020/04/01/hadoop2/"/>
-    <url>/2020/04/01/hadoop2/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>study</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>博客导航</title>
     <link href="/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/"/>
     <url>/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</url>
@@ -112,6 +93,25 @@
     <tags>
       
       <tag>hadoop</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>大数据生态hadoop(2)：hadoop安装部署</title>
+    <link href="/2017/05/07/hadoop2/"/>
+    <url>/2017/05/07/hadoop2/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>study</tag>
       
     </tags>
     
