@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Hive50道sql必练题</title>
+    <link href="/2020/04/08/hive1-2/"/>
+    <url>/2020/04/08/hive1-2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>50道Hive之sql必练题，做完50道题会对HiveSql有一个比较深的认识，且附上答案以及验证结果。</p><h1 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h1><pre><code class="sql">-- 学生表create table student(s_id string,s_name string,s_birth string,s_sex string) row format delimited fields terminated by &#39;\,&#39;;-- 课堂表create table course(c_id string,c_name string,t_id string) row format delimited fields terminated by &#39;\,&#39;;-- 教师表create table teacher(t_id string,t_name string) row format delimited fields terminated by &#39;\,&#39;;-- 分数表create table score(s_id string,c_id string,s_score int) row format delimited fields terminated by &#39;\,&#39;;</code></pre><h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><pre><code class="bash">-- vim /opt/module/data/student.csv01,赵雷,1990-01-01,男02,钱电,1990-12-21,男03,孙风,1990-05-20,男04,李云,1990-08-06,男05,周梅,1991-12-01,女06,吴兰,1992-03-01,女07,郑竹,1989-07-01,女08,王菊,1990-01-20,女-- vim /opt/module/datas/course.csv01,语文,0202,数学,0103,英语,03-- vim /opt/module/datas/teacher.csv01,张三02,李四03,王五-- vim /opt/module/datas/score.csv01,01,8001,02,9001,03,9902,01,7002,02,6002,03,8003,01,8003,02,8003,03,8004,01,5004,02,3004,03,2005,01,7605,02,8706,01,3106,03,3407,02,8907,03,98</code></pre><h1 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h1><pre><code class="sql">load data local inpath &#39;/opt/module/datas/student.csv&#39; into table student;load data local inpath &#39;/opt/module/datas/course.csv&#39; into table course;load data local inpath &#39;/opt/module/datas/teacher.csv&#39; into table teacher;load data local inpath &#39;/opt/module/datas/score.csv&#39; into table score;</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hive</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hive</tag>
+      
+      <tag>sql</tag>
+      
+      <tag>练习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客导航</title>
     <link href="/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/"/>
     <url>/2020/03/28/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</url>
