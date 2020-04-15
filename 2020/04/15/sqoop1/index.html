@@ -177,9 +177,7 @@
 <h1 id="失败原因"><a href="#失败原因" class="headerlink" title="失败原因"></a>失败原因</h1><ul>
 <li>使用sqoop导mysql数据到HDFS，不用在hive里面建表，在跑mr任务时候自动创建hive表</li>
 <li>在用sqoop导mysql数据到HDFS，没有在Hbase建表</li>
-<li>查询官方文档：sqoop1.4.7只支持HBase1.0.1之前的版本的自动创建HBase表的功能</li>
-</ul>
-<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1><ul>
+<li>查询官方文档：sqoop1.4.7只支持HBase1.0.1之前的版本的自动创建HBase表的功能<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1></li>
 <li>sqoop 版本1.4.7 </li>
 <li>Hbase 版本2.1.1<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="1、在hbase里面建表"><a href="#1、在hbase里面建表" class="headerlink" title="1、在hbase里面建表"></a>1、在hbase里面建表</h2><pre><code class="bash">create &#39;hbase_company&#39;,&#39;info&#39;
 scan &#39;hbase_company&#39;</code></pre>
