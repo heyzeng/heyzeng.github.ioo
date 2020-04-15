@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    240 字
+                    247 字
                   </span>
                 
 
@@ -177,23 +177,26 @@
 <h1 id="失败原因"><a href="#失败原因" class="headerlink" title="失败原因"></a>失败原因</h1><ul>
 <li>使用sqoop导mysql数据到HDFS，不用在hive里面建表，在跑mr任务时候自动创建hive表</li>
 <li>在用sqoop导mysql数据到HDFS，没有在Hbase建表</li>
-<li>查询官方文档：sqoop1.4.7只支持HBase1.0.1之前的版本的自动创建HBase表的功能<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1></li>
+<li>查询官方文档：sqoop1.4.7只支持HBase1.0.1之前的版本的自动创建HBase表的功能</li>
+</ul>
+<h1 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h1><ul>
 <li>sqoop 版本1.4.7 </li>
 <li>Hbase 版本2.1.1<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="1、在hbase里面建表"><a href="#1、在hbase里面建表" class="headerlink" title="1、在hbase里面建表"></a>1、在hbase里面建表</h2><pre><code class="bash">create &#39;hbase_company&#39;,&#39;info&#39;
 scan &#39;hbase_company&#39;</code></pre>
-<h2 id="2、脚本添加参数"><a href="#2、脚本添加参数" class="headerlink" title="2、脚本添加参数"></a>2、脚本添加参数</h2>```bash</li>
-<li>-hbase-create-table<br>```<h1 id="附：导数据脚本"><a href="#附：导数据脚本" class="headerlink" title="附：导数据脚本"></a>附：导数据脚本</h1>```bash<br>bin/sqoop import \</li>
-<li>-connect jdbc:mysql://ip:3306/company \</li>
-<li>-username root \</li>
-<li>-password 000000 \</li>
-<li>-table company \</li>
-<li>-columns “id,name,sex” \</li>
-<li>-column-family “info” \</li>
-<li>-hbase-create-table \</li>
-<li>-hbase-row-key “id” \</li>
-<li>-hbase-table “hbase_company” \</li>
-<li>-num-mappers 1 \</li>
-<li>-split-by id<pre><code></code></pre></li>
+<h2 id="2、脚本添加参数"><a href="#2、脚本添加参数" class="headerlink" title="2、脚本添加参数"></a>2、脚本添加参数</h2><pre><code class="bash">--hbase-create-table</code></pre>
+<h1 id="附：导数据脚本"><a href="#附：导数据脚本" class="headerlink" title="附：导数据脚本"></a>附：导数据脚本</h1><pre><code class="bash">bin/sqoop import \
+--connect jdbc:mysql://ip:3306/company \
+--username root \
+--password 000000 \
+--table company \
+--columns &quot;id,name,sex&quot; \
+--column-family &quot;info&quot; \
+--hbase-create-table \
+--hbase-row-key &quot;id&quot; \
+--hbase-table &quot;hbase_company&quot; \
+--num-mappers 1 \
+--split-by id</code></pre>
+</li>
 </ul>
 
             </div>
