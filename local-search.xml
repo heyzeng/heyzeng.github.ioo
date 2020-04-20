@@ -78,16 +78,18 @@
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>俄罗斯小哥很帅</p><h1 id="纪要"><a href="#纪要" class="headerlink" title="纪要"></a>纪要</h1><h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><ul><li>Yandex团队clickhouse的新特性以及在机器学习方面的研究</li><li>腾讯</li><li>朱凯老师MergerTree</li></ul><h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1>]]></content>
     
     
+    <categories>
+      
+      <category>ClickHouse</category>
+      
+    </categories>
+    
     
     <tags>
       
       <tag>clickhouse</tag>
       
       <tag>meetup</tag>
-      
-      <tag>categories</tag>
-      
-      <tag>ClickHouse</tag>
       
     </tags>
     
